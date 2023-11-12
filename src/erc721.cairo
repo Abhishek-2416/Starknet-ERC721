@@ -24,4 +24,9 @@ mod Demo_ERC721 {
     fn get_symbol() -> felt252 {
         symbol::read()
     }
+
+    #[view]
+    fn get_symbol() -> felt252 {
+        symbol::read()
+    }
 }
