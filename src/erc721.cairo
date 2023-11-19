@@ -2,10 +2,15 @@
 mod Demo_ERC721 { 
     //Here we are going to first take a constructor function and that takes the name and symbol as input and then intializes the contract with those inputs
     #[storage]
-    struct Storage { 
-        name: felt252,
-        symbol: felt252
-    }
+    struct Storage {
+    name: felt252,
+    symbol: felt252,
+    owners: LegacyMap::<u256, ContractAddress>,
+    balances: LegacyMap::<ContractAddress, u256>,
+    token_approvals: LegacyMap::<u256, ContractAddress>,
+    // (owner, operator)
+    operator_approvals: LegacyMap::<(ContractAddress, ContractAddress), bool>,
+}
 
     #[constructor]
     fn constructor(_name: felt252,_symbol: felt252){
